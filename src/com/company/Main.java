@@ -9,13 +9,15 @@ public class Main {
     static int die1;
     static int die2;
 
+    // TODO: 24-09-2019 De fleste public i metoderne skal ændres til private (ift opg beskrivelse)
+
     public static void getSum() {
         dieSum = die1 + die2;
-    }
+    } // TODO: 24-09-2019 Eliminate dieSum by returning value
 
     public static void rollDice() {
 
-        Random random = new Random();
+        Random random = new Random(); //TODO: 24-09-2019 Research Random seed?
 
         die1 = random.nextInt(6)+1;
         die2 = random.nextInt(6)+1;
@@ -31,18 +33,20 @@ public class Main {
 
             roundCount++;
 
+            // TODO: 24-09-2019 indplimenter ekstra tur ved 2 ens terninger
+
             if (roundCount%2 == 1) {
                 System.out.println("spiller 1's tur");
                 rollDice();
                 getSum();
-                pointTotal1 = pointTotal1+dieSum;
+                pointTotal1 = pointTotal1+dieSum; // TODO: 24-09-2019 make simpler
                 System.out.println("spiller 1 total: "+pointTotal1);
             }
             else if (roundCount%2 == 0) {
                 System.out.println("spiller 2's tur");
                 rollDice();
                 getSum();
-                pointTotal2 = pointTotal2+dieSum;
+                pointTotal2 = pointTotal2+dieSum; // TODO: 24-09-2019 make simpler
                 System.out.println("spiller 2 total: "+pointTotal2);
             }
 
@@ -50,7 +54,7 @@ public class Main {
         if(pointTotal1 > pointTotal2) {
             System.out.println("spiller 1 har vundet!");
         }
-        else if (pointTotal1 < pointTotal2){
+        else if (pointTotal1 < pointTotal2){ // TODO: 24-09-2019 make simpler
             System.out.println("spiller 2 har vundet!");
         }
         GUI gui = new GUI();
