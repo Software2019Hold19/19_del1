@@ -1,6 +1,8 @@
 package com.company;
 import java.util.*;
 
+import gui_main.GUI;
+
 public class Main {
 
     static int dieSum = 0;
@@ -21,7 +23,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        // write your code here
         int roundCount = 0;
         int pointTotal1 = 0;
         int pointTotal2 = 0;
@@ -52,5 +53,8 @@ public class Main {
         else if (pointTotal1 < pointTotal2){
             System.out.println("spiller 2 har vundet!");
         }
+        GUI gui = new GUI();
+
+        gui.setDice(1,2);
     }
 }
