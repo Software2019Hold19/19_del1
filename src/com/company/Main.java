@@ -3,6 +3,8 @@ import java.util.*;
 
 import gui_main.GUI;
 
+// TODO: 24-09-2019 Agree on spaces in code
+
 public class Main {
 
     static int dieSum = 0;
@@ -33,7 +35,7 @@ public class Main {
 
             roundCount++;
 
-            // TODO: 24-09-2019 indplimenter ekstra tur ved 2 ens terninger
+            // TODO: 24-09-2019 implimenter ekstra tur ved 2 ens terninger
 
             if (roundCount%2 == 1) {
                 System.out.println("spiller 1's tur");
