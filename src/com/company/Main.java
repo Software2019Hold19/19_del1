@@ -94,7 +94,7 @@ public class Main {
             gui.showMessage(player1.getName() + " har " + player1.getBalance() + " point og " + player2.getName() + " har " + player2.getBalance() + " point");
         }
 
-        if(pointTotal1 > pointTotal2) {
+        if(player1.getBalance() > player2.getBalance()) {
             System.out.println("spiller 1 har vundet!");
             gui.showMessage(player1.getName() + " du har vundet!");
         }
@@ -102,7 +102,6 @@ public class Main {
             System.out.println("spiller 2 har vundet!");
             gui.showMessage(player2.getName() + " du har vundet!");
         }
-
 
     }
 }
