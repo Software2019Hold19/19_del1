@@ -19,7 +19,7 @@ public class Main {
 
     public static void rollDice() {
 
-        Random random = new Random(); //TODO: 24-09-2019 Research Random seed?
+        Random random = new Random();
 
         die1 = random.nextInt(6)+1;
         die2 = random.nextInt(6)+1;
@@ -35,7 +35,7 @@ public class Main {
 
             roundCount++;
 
-            // TODO: 24-09-2019 implimenter ekstra tur ved 2 ens terninger
+            // TODO: 24-09-2019 Implimenter ekstra tur ved 2 ens terninger
 
             if (roundCount%2 == 1) {
                 System.out.println("spiller 1's tur");
