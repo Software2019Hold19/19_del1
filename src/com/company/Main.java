@@ -79,11 +79,6 @@ public class Main {
 
 
 
-
-
-
-
-
         // Oliver
         // sporg spillerne om navne
         GUI gui = new GUI();
