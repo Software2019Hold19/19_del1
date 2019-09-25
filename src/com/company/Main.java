@@ -51,6 +51,8 @@ public class Main {
         }
     }
 
+    //Dánjal
+    //Ser om terningerne er et par, hvis ja, så får spilleren et extra kast
     private static void checkDicePair(GUI_Player player){
         while(die1 == die2){
             gui.showMessage(player.getName() + " får et extra kast");
