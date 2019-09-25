@@ -104,23 +104,5 @@ public class Main {
         }
 
 
-
-
-        // Oliver
-        // sporg spillerne om navne
-        GUI gui = new GUI();
-
-        GUI_Player player1 = new GUI_Player(gui.getUserString("Indtast navnet på 1. spiller"), 0);
-        GUI_Player player2 = new GUI_Player(gui.getUserString("Indtast navnet på 2. spiller"), 0);
-        boolean isPlayer1 = true;
-        int pntMax = 40;
-        gui.setDice(1,2);
-
-
-        //følgende linje kalder testmetode. fjern "//" for at teste.
-        //MainTest.test();
-
-        gui.showMessage("Velkommen til spiller " + player1.getName() + " og " + player2.getName() + "!");
-
     }
 }
