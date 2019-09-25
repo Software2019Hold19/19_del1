@@ -1,6 +1,7 @@
 package com.company;
 import java.util.*;
 
+import del1.gruppe19.test.MainTest;
 import gui_main.GUI;
 
 // TODO: 24-09-2019 Agree on spaces in code
@@ -62,5 +63,8 @@ public class Main {
         GUI gui = new GUI();
 
         gui.setDice(1,2);
+
+        //følgende linje kalder testmetode. fjern "//" for at teste.
+        //MainTest.test();
     }
 }
