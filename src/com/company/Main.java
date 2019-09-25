@@ -51,12 +51,22 @@ public class Main {
         }
     }
 
+    private static void checkDicePair(GUI_Player player){
+        while(die1 == die2){
+            gui.showMessage(player.getName() + " Par giver et extra kast");
+            rollDice();
+            player.setBalance(checkSnakeEyes(player.getBalance()));
+            System.out.println("spiller 1 total: " + pointTotal1);
+        }
+    }
+
     public static void player1Turn(){           //Der er blevet lavet en method til spiller 1's tur.
         System.out.println("spiller 1's tur");
         gui.showMessage(player1.getName() + " det er din tur");
         rollDice();
         player1.setBalance(checkSnakeEyes(player1.getBalance()));
         System.out.println("spiller 1 total: " + pointTotal1);
+        checkDicePair(player1);
 
     }
 
@@ -66,6 +76,7 @@ public class Main {
         rollDice();
         player2.setBalance(checkSnakeEyes(player2.getBalance()));
         System.out.println("spiller 2 total: " + pointTotal2);
+        checkDicePair(player2);
     }
 
     public static void main(String[] args) throws InterruptedException {
