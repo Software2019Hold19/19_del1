@@ -1,9 +1,13 @@
 package com.company;
 import java.util.*;
 
+
+import del1.gruppe19.test.MainTest;
+
 import java.util.concurrent.TimeUnit; //Til test Oliver
 
 import gui_fields.GUI_Player;
+
 import gui_main.GUI;
 
 // TODO: 24-09-2019 Agree on spaces in code
@@ -98,6 +102,25 @@ public class Main {
             System.out.println("spiller 2 har vundet!");
             gui.showMessage(player2.getName() + " du har vundet!");
         }
+
+
+
+
+        // Oliver
+        // sporg spillerne om navne
+        GUI gui = new GUI();
+
+        GUI_Player player1 = new GUI_Player(gui.getUserString("Indtast navnet på 1. spiller"), 0);
+        GUI_Player player2 = new GUI_Player(gui.getUserString("Indtast navnet på 2. spiller"), 0);
+        boolean isPlayer1 = true;
+        int pntMax = 40;
+        gui.setDice(1,2);
+
+
+        //følgende linje kalder testmetode. fjern "//" for at teste.
+        //MainTest.test();
+
+        gui.showMessage("Velkommen til spiller " + player1.getName() + " og " + player2.getName() + "!");
 
     }
 }
