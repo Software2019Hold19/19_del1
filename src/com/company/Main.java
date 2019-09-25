@@ -41,13 +41,21 @@ public class Main {
         gui.setDice(die1, die2);
     }
 
+    //Dánjal
+    private static int checkSnakeEyes(int total){   //Ser om begge terninge er 1
+        if(die1 == 1 && die2 == 1){                 //Hvis ja, så begynder du fra 0 igen
+            total = 0;
+            return total;
+        }else{
+            return total + getSum();
+        }
+    }
+
     public static void player1Turn(){           //Der er blevet lavet en method til spiller 1's tur.
         System.out.println("spiller 1's tur");
         gui.showMessage(player1.getName() + " det er din tur");
         rollDice();
-        int sum = getSum();
-        //pointTotal1 += sum;
-        player1.setBalance(player1.getBalance()+ sum);
+        player1.setBalance(checkSnakeEyes(player1.getBalance()));
         System.out.println("spiller 1 total: " + pointTotal1);
 
     }
@@ -56,9 +64,7 @@ public class Main {
         System.out.println("spiller 2's tur");
         gui.showMessage(player2.getName() + " det er din tur");
         rollDice();
-        int sum = getSum();
-        //pointTotal2 += sum;
-        player2.setBalance(player2.getBalance() + sum);
+        player2.setBalance(checkSnakeEyes(player2.getBalance()));
         System.out.println("spiller 2 total: " + pointTotal2);
     }
 
