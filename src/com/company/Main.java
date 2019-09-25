@@ -53,10 +53,10 @@ public class Main {
 
     private static void checkDicePair(GUI_Player player){
         while(die1 == die2){
-            gui.showMessage(player.getName() + " Par giver et extra kast");
+            gui.showMessage(player.getName() + " får et extra kast");
+            gui.showMessage(player.getName() + " har " + player.getBalance() + " point");
             rollDice();
             player.setBalance(checkSnakeEyes(player.getBalance()));
-            System.out.println("spiller 1 total: " + pointTotal1);
         }
     }
 
