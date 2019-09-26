@@ -28,7 +28,7 @@ public class Main {
     // TODO: 24-09-2019 De fleste public i metoderne skal ændres til private (ift opg beskrivelse)
 
     public static int getSum() {
-        return(die1 + die2);
+        return(die1 + die2);git at
     }
 
     public static void rollDice() {
