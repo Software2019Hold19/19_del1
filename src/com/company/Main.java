@@ -16,9 +16,7 @@ public class Main {
 
     static int die1;
     static int die2;
-    static int roundCount = 0;
     static int pointTotal1 = 0;
-    static int pointTotal2 = 0;
 
 
     static GUI gui;
@@ -82,8 +80,6 @@ public class Main {
 
 
         int roundCount = 0;
-        int pointTotal1 = 0;
-        int pointTotal2 = 0;
 
         while(player1.getBalance() < 40 && player2.getBalance() < 40) {
 
