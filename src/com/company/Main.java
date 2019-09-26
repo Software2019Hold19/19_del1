@@ -24,7 +24,17 @@ public class Main {
     static GUI_Player player2;
 
     // TODO: 24-09-2019 De fleste public i metoderne skal ændres til private (ift opg beskrivelse)
+    public static int returnPairTest(){//returner hvilken type par, hvis der er et par ellers return 0
+        if(die1 == die2){
+            return(die1);
+        }
+        else{
+            return(0);
+        }
+    }
 
+
+    // metode der returner sum for givent kast
     public static int getSum() {
         return(die1 + die2);
     }
@@ -106,5 +116,6 @@ public class Main {
             gui.showMessage(player2.getName() + " du har vundet!");
         }
 
+        MainTest.test(); //kører test fra MainTest-klassen
     }
 }
