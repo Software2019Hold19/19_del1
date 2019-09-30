@@ -24,7 +24,17 @@ public class Main {
     static GUI_Player player2;
 
     // TODO: 24-09-2019 De fleste public i metoderne skal ændres til private (ift opg beskrivelse)
+    public static int returnPairTest(){//returner hvilken type par, hvis der er et par ellers return 0
+        if(die1 == die2){
+            return(die1);
+        }
+        else{
+            return(0);
+        }
+    }
 
+
+    // metode der returner sum for givent kast
     public static int getSum() {
         return(die1 + die2);
     }
@@ -53,13 +63,46 @@ public class Main {
     //Ser om terningerne er et par, hvis ja, så får spilleren et extra kast
     private static void checkDicePair(GUI_Player player){
         while(die1 == die2){
-            gui.showMessage(player.getName() + " får et extra kast");
-            gui.showMessage(player.getName() + " har " + player.getBalance() + " point");
-            rollDice();
-            player.setBalance(checkSnakeEyes(player.getBalance()));
+            extraRoll(player);
+            pairSix(player);
         }
     }
 
+
+    private static void extraRoll(GUI_Player player){
+        gui.showMessage(player.getName() + " får et extra kast");
+        gui.showMessage(player.getName() + " har " + player.getBalance() + " point");
+        rollDice();
+        player.setBalance(checkSnakeEyes(player.getBalance()));
+    }
+   // Yassine:
+    // Lavet en method for, hvis player slår 6 med begge terninger 2 gange i træk
+    private static void pairSix(GUI_Player player){
+        int count = 0;
+        while (true){
+            if(die1 == 6 && die2 == 6 && count == 0){
+                count = 1;
+                extraRoll(player);
+            }else if(die1 == 6 && die2 == 6 && count == 1){
+
+                gui.showMessage(player.getName() + " du har vundet!");
+
+            }else{
+                count = 0;
+                break;
+            }
+        }
+
+    }
+
+    /*
+    //
+    private static void winner(GUI_Player player1,GUI_Player player2){
+
+    }
+    */
+
+    // TODO: 30-09-2019 Fix souts 
     public static void playerTurn(GUI_Player player){           //Der er blevet lavet en method til spiller 1's tur.
         System.out.println("spiller 1's tur");
         gui.showMessage(player.getName() + " det er din tur");
@@ -106,5 +149,7 @@ public class Main {
             gui.showMessage(player2.getName() + " du har vundet!");
         }
 
+        MainTest.test(); //kører test fra MainTest-klassen
     }
 }
+
