@@ -59,10 +59,13 @@ public class Main {
         }
     }
 
-    //Dánjal
+    //Dánjal/
     //Ser om terningerne er et par, hvis ja, så får spilleren et extra kast
+    //Yassine: Angiver resultat før ekstra kast
     private static void checkDicePair(GUI_Player player){
         while(die1 == die2){
+            // Yassine: uden nedenstående kode får begge spillers point ved par og derefter kommer "extra kast"
+            // gui.showMessage(player.getName() + " har " + player.getBalance() + " point");
             extraRoll(player);
             pairSix(player);
         }
@@ -70,13 +73,16 @@ public class Main {
 
 
     private static void extraRoll(GUI_Player player){
+
+        gui.showMessage(player1.getName() + " har " + player1.getBalance() + " point og " + player2.getName() + " har " + player2.getBalance() + " point");
         gui.showMessage(player.getName() + " får et extra kast");
-        gui.showMessage(player.getName() + " har " + player.getBalance() + " point");
+        //gui.showMessage(player.getName() + " har " + player.getBalance() + " point");
+        // Yassine: uden ovenstående for vi først resultat og derefter ekstra kast
         rollDice();
         player.setBalance(checkSnakeEyes(player.getBalance()));
     }
    // Yassine:
-    // Lavet en method for, hvis player slår 6 med begge terninger 2 gange i træk
+    // Metodefor, hvis player slår 6 med begge terninger 2 gange i træk
     private static void pairSix(GUI_Player player){
         int count = 0;
         while (true){
