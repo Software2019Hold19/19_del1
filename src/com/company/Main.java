@@ -16,9 +16,7 @@ public class Main {
 
     static int die1;
     static int die2;
-    static int roundCount = 0;
     static int pointTotal1 = 0;
-    static int pointTotal2 = 0;
 
 
     static GUI gui;
@@ -28,7 +26,7 @@ public class Main {
     // TODO: 24-09-2019 De fleste public i metoderne skal ændres til private (ift opg beskrivelse)
 
     public static int getSum() {
-        return(die1 + die2);git at
+        return(die1 + die2);
     }
 
     public static void rollDice() {
@@ -62,23 +60,13 @@ public class Main {
         }
     }
 
-    public static void player1Turn(){           //Der er blevet lavet en method til spiller 1's tur.
+    public static void playerTurn(GUI_Player player){           //Der er blevet lavet en method til spiller 1's tur.
         System.out.println("spiller 1's tur");
-        gui.showMessage(player1.getName() + " det er din tur");
+        gui.showMessage(player.getName() + " det er din tur");
         rollDice();
-        player1.setBalance(checkSnakeEyes(player1.getBalance()));
+        player.setBalance(checkSnakeEyes(player.getBalance()));
         System.out.println("spiller 1 total: " + pointTotal1);
-        checkDicePair(player1);
-
-    }
-
-    public static void player2Turn(){           //Der er blevet lavet en method til spiller 2's tur.
-        System.out.println("spiller 2's tur");
-        gui.showMessage(player2.getName() + " det er din tur");
-        rollDice();
-        player2.setBalance(checkSnakeEyes(player2.getBalance()));
-        System.out.println("spiller 2 total: " + pointTotal2);
-        checkDicePair(player2);
+        checkDicePair(player);
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -92,22 +80,18 @@ public class Main {
 
 
         int roundCount = 0;
-        int pointTotal1 = 0;
-        int pointTotal2 = 0;
 
         while(player1.getBalance() < 40 && player2.getBalance() < 40) {
 
             roundCount++;
 
-            // TODO: 24-09-2019 Implimenter ekstra tur ved 2 ens terninger
-
             if (roundCount % 2 == 1) {
 
-                player1Turn();
+                playerTurn(player1);
 
             }
             else if (roundCount % 2 == 0) {
-                player2Turn();
+                playerTurn(player2);
             }
 
             gui.showMessage(player1.getName() + " har " + player1.getBalance() + " point og " + player2.getName() + " har " + player2.getBalance() + " point");
