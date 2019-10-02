@@ -2,9 +2,8 @@ package com.company;
 import java.util.*;
 
 
-import del1.gruppe19.test.MainTest;
+import del1.gruppe19.test.MainTest; // import af test, men er kommenteret i bunden af dokumenten
 
-import java.util.concurrent.TimeUnit; //Til test Oliver
 
 import gui_fields.GUI_Player;
 
