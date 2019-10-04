@@ -74,8 +74,8 @@ public class Main {
             // Yassine: uden nedenstående kode får begge spillers point ved par og derefter kommer "extra kast"
             // gui.showMessage(player.getName() + " har " + player.getBalance() + " point");
             if (player.getBalance() < 40) {
-                extraRoll(player);
                 pairSix(player);
+                extraRoll(player);
             }
             else
                 break;
