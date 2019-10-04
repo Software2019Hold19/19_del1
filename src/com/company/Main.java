@@ -41,10 +41,10 @@ public class Main {
 
     public static void rollDice() {
 
-        Random random = new Random();
-
-        die1 = random.nextInt(6) + 1;
-        die2 = random.nextInt(6) + 1;
+        Scanner in = new Scanner(System.in);
+        System.out.println("insert Dice Values!");
+        die1 = in.nextInt();
+        die2 = in.nextInt();
         System.out.println("Du har slået: " + die1 + " og " + die2);
         gui.setDice(die1, die2);
     }
@@ -65,8 +65,7 @@ public class Main {
     private static void checkDicePair(GUI_Player player){
         while(die1 == die2){
             // Yassine: uden nedenstående kode får begge spillers point ved par og derefter kommer "extra kast"
-            // gui.showMessage(player.getName() + " har " + player.getBalance() + " point");
-            extraRoll(player);
+            // gui.showMessage(player.getName() + " har " + player.getBalance() + " point")
             pairSix(player);
         }
     }
@@ -94,8 +93,14 @@ public class Main {
                 gui.showMessage(player.getName() + " du har vundet!");
 
             }else{
-                count = 0;
-                break;
+                if (count == 1){
+                    count = 0;
+                    break;
+                }
+                else{
+                    extraRoll(player);
+                    break;
+                }
             }
         }
 
