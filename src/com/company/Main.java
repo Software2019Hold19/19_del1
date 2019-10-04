@@ -2,9 +2,8 @@ package com.company;
 import java.util.*;
 
 
-import del1.gruppe19.test.MainTest;
+import del1.gruppe19.test.MainTest; // import af test, men er kommenteret i bunden af dokumenten
 
-import java.util.concurrent.TimeUnit; //Til test Oliver
 
 import gui_fields.GUI_Player;
 
@@ -24,6 +23,7 @@ public class Main {
     static GUI_Player player2;
 
     // TODO: 24-09-2019 De fleste public i metoderne skal ændres til private (ift opg beskrivelse)
+    //følgende metode lavet for testens skyld
     public static int returnPairTest(){//returner hvilken type par, hvis der er et par ellers return 0
         if(die1 == die2){
             return(die1);
@@ -51,12 +51,18 @@ public class Main {
 
     //Dánjal
     private static int checkSnakeEyes(int total){   //Ser om begge terninge er 1
-        if(die1 == 1 && die2 == 1){                 //Hvis ja, så begynder du fra 0 igen
-            total = 0;
-            return total;
-        }else{
-            return total + getSum();
-        }
+
+       if (player1.getBalance() < 40 || player2.getBalance() < 40) {
+           if (die1 == 1 && die2 == 1) {                 //Hvis ja, så begynder du fra 0 igen
+               total = 0;
+               return total;
+           } else {
+               return total + getSum();
+           }
+       }
+       else {
+           return total;
+       }
     }
 
     //Dánjal/
@@ -66,8 +72,12 @@ public class Main {
         while(die1 == die2){
             // Yassine: uden nedenstående kode får begge spillers point ved par og derefter kommer "extra kast"
             // gui.showMessage(player.getName() + " har " + player.getBalance() + " point");
-            extraRoll(player);
-            pairSix(player);
+            if (player.getBalance() < 40) {
+                pairSix(player);
+                extraRoll(player);
+            }
+            else
+                break;
         }
     }
 
@@ -107,6 +117,8 @@ public class Main {
 
     }
     */
+
+    // TODO: 30-09-2019 Fix souts 
     public static void playerTurn(GUI_Player player){           //Der er blevet lavet en method til spiller 1's tur.
         System.out.println("spiller 1's tur");
         gui.showMessage(player.getName() + " det er din tur");
@@ -127,31 +139,51 @@ public class Main {
 
 
         int roundCount = 0;
+        boolean hasPlayerOneWon = false;
+        boolean hasPlayerTwoWon = false;
 
-        while(player1.getBalance() < 40 && player2.getBalance() < 40) {
+        while(!hasPlayerOneWon && !hasPlayerTwoWon){
 
             roundCount++;
+
 
             if (roundCount % 2 == 1) {
 
                 playerTurn(player1);
 
+                if (player1.getBalance() >= 40){
+                    System.out.println("over 40 point");
+                    System.out.println(die1+ " " + (int)die2);
+
+                    if (die1 == die2){
+                        System.out.println("spiller 1 har vundet!");
+                        gui.showMessage(player1.getName() + " du har vundet!");
+                        hasPlayerOneWon = true;
+                    }
+                }
+
+
             }
             else if (roundCount % 2 == 0) {
+
                 playerTurn(player2);
+
+                if (player2.getBalance() >= 40){
+                    System.out.println("over 40 point");
+                    System.out.println(die1 + " " + die2);
+
+                    if (die1 == die2){
+                        System.out.println("spiller 2 har vundet!");
+                        gui.showMessage(player2.getName() + " du har vundet!");
+                        hasPlayerTwoWon = true;
+                    }
+                }
+
             }
 
             gui.showMessage(player1.getName() + " har " + player1.getBalance() + " point og " + player2.getName() + " har " + player2.getBalance() + " point");
         }
-
-        if(player1.getBalance() > player2.getBalance()) {
-            System.out.println("spiller 1 har vundet!");
-            gui.showMessage(player1.getName() + " du har vundet!");
-        }
-        else {
-            System.out.println("spiller 2 har vundet!");
-            gui.showMessage(player2.getName() + " du har vundet!");
-        }
+        System.out.println("Spillet er slut");
 
         //MainTest.test(); //kører test fra MainTest-klassen
     }
