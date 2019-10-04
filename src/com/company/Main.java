@@ -2,9 +2,8 @@ package com.company;
 import java.util.*;
 
 
-import del1.gruppe19.test.MainTest;
+import del1.gruppe19.test.MainTest; // import af test, men er kommenteret i bunden af dokumenten
 
-import java.util.concurrent.TimeUnit; //Til test Oliver
 
 import gui_fields.GUI_Player;
 
@@ -154,9 +153,9 @@ public class Main {
 
                 if (player1.getBalance() >= 40){
                     System.out.println("over 40 point");
-                    System.out.println((int)die1+ " " + (int)die2);
+                    System.out.println(die1+ " " + (int)die2);
 
-                    if ((int)die1 == (int)die2){
+                    if (die1 == die2){
                         System.out.println("spiller 1 har vundet!");
                         gui.showMessage(player1.getName() + " du har vundet!");
                         hasPlayerOneWon = true;
