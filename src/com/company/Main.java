@@ -41,10 +41,10 @@ public class Main {
 
     public static void rollDice() {
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("insert Dice Values!");
-        die1 = in.nextInt();
-        die2 = in.nextInt();
+        Random random = new Random();
+
+        die1 = random.nextInt(6) + 1;
+        die2 = random.nextInt(6) + 1;
         System.out.println("Du har slået: " + die1 + " og " + die2);
         gui.setDice(die1, die2);
     }
